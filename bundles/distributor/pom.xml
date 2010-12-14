@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <packaging>bundle</packaging>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>x.ulf</groupId>
+        <artifactId>allspark.bundles</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>allspark.distributor</artifactId>
+
+    <name>Allspark Distributor</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.1.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Activator>x.ulf.distributor.Activator</Bundle-Activator>
+                        <Export-Package>
+                            x.ulf.distributor
+                        </Export-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

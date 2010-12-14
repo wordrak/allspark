@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <packaging>bundle</packaging>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>x.ulf</groupId>
+        <artifactId>allspark.bundles</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>allspark.database</artifactId>
+
+    <name>Allspark Database</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>x.ulf</groupId>
+            <artifactId>allspark.api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.2.147</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.1.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Activator>x.ulf.allspark.database.internal.DatabaseModuleContext</Bundle-Activator>
+                        <Embed-Dependency>
+                            mybatis
+                        </Embed-Dependency>
+                        <Export-Package>
+                            x.ulf.allspark.database
+                        </Export-Package>
+                        <Import-Package>
+                            !net.sf.cglib.proxy,
+                            !org.slf4j,
+                            !org.apache.commons.logging,
+                            !org.apache.log4j,
+                            *
+                        </Import-Package>
+                        <Private-Package>
+                            x.ulf.allspark.database.internal
+                        </Private-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
